@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ApplesToApples;
+package FactOrCrap;
 
 /**
  *
  * @author Ajay
  */
-public class ApplesToApples {
+public class FactOrCrap {
 
     /**
      * @param args the command line arguments
