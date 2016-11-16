@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package assignment3;
+package ApplesToApples;
 
 /**
  *
  * @author Ajay
  */
-public class Assignment3 {
+public class ApplesToApples {
 
     /**
      * @param args the command line arguments
