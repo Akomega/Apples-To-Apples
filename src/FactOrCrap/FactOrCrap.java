@@ -5,6 +5,9 @@
  */
 package FactOrCrap;
 
+import userInterface.FactOrCrapUI;
+
+
 /**
  *
  * @author Ajay
@@ -16,6 +19,9 @@ public class FactOrCrap {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        FactOrCrapUI frame = new FactOrCrapUI();
+
     }
     
 }
