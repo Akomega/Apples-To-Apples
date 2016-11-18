@@ -34,6 +34,7 @@ public class FactOrCrapUI extends JFrame {
         JButton newCard = new JButton("New Card");
         JButton start = new JButton("start");
         JButton reset = new JButton("Reset");
+        JButton facedown = new JButton("Face down");
         
         QuestionCardUI qc = new QuestionCardUI();
         TurnTimer t = new TurnTimer(5);
@@ -47,9 +48,13 @@ public class FactOrCrapUI extends JFrame {
          reset.addActionListener((ActionEvent e) -> {
             t.reset();
         } );
+         facedown.addActionListener((ActionEvent e) -> {
+             qc.putFaceDown();
+         });
          
          this.add(qc);
          this.add(newCard);
+         this.add(facedown);
          this.add(t);
          this.add(start);
          this.add(reset);       
