@@ -17,10 +17,23 @@ import javax.swing.Timer;
 /**
  * FUNCTIONAL REQUIREMENT 1.0 - "The system shall maintain a timed functionality"
  * @author Ajay
+ * 
  * Constructor takes in the time limit, and creates a progress bar that will
  * count down to 0.
+ * 
+ * --Public Methods:
+ * * void start();
+ * * void stop();
+ * * void reset();
+ * * bool getIsTimeUp();
+ * * void setIsTimeUp(bool x);
+ * 
  */
-public class turnTimer extends JPanel {
+public class TurnTimer extends JPanel {
+    
+    //Colors
+    private static final Color BAR_COLOR = Color.decode("#8080ff");
+    private static final Color BACKGROUND_COLOR = Color.decode("#9999FF");
     
     //Components
     private JProgressBar bar;
@@ -35,12 +48,29 @@ public class turnTimer extends JPanel {
                             //False when countdown is between 0 and timeLimit, exclusive
     
     //Constructor
-    public turnTimer(int limit){
+    public TurnTimer(int limit){
         setIsTimeUp(true);
         initComponents(limit);
         initVisuals();
         this.add(bar);
         this.add(label);
+    }
+    
+    /**
+     * Returns true if countdown = 0, or countdown = timeLimit
+     * Returns false when countdown is between 0 and timeLimit, exclusive. (When the clock is actually running)
+     * @return 
+     */
+    public Boolean getIsTimeUp() {
+        return isTimeUp;
+    }
+
+    /**
+     * Sets the thing
+     * @param isTimeUp
+     */
+    public void setIsTimeUp(Boolean isTimeUp) {
+        this.isTimeUp = isTimeUp;
     }
     
     //Timer methods
@@ -59,30 +89,15 @@ public class turnTimer extends JPanel {
         setIsTimeUp(true);
     }
     
-    //Specifies colors and borders
+    //Implements colors and borders
     private void initVisuals(){
         this.setBorder(BorderFactory.createEtchedBorder());
-        bar.setForeground(Color.decode("#8080ff"));
-        this.setBackground(Color.decode("#9999FF"));
+        bar.setForeground(BAR_COLOR);
+        this.setBackground(BACKGROUND_COLOR);
         
     }
 
-    /**
-     * Returns true if countdown = 0, or countdown = timeLimit
-     * Returns false when countdown is between 0 and timeLimit, exclusive. (When the clock is actually running)
-     */
-    public Boolean getIsTimeUp() {
-        return isTimeUp;
-    }
-
-    /**
-     * Sets the thing
-     */
-    public void setIsTimeUp(Boolean isTimeUp) {
-        this.isTimeUp = isTimeUp;
-    }
-      
-    
+         
     //Do all the things
     private void initComponents(int timeLimit){  
        this.timeLimit = timeLimit;

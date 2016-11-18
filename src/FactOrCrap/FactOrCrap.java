@@ -5,6 +5,9 @@
  */
 package FactOrCrap;
 
+import Logic.QuestionList;
+import userInterface.FactOrCrapUI;
+
 
 /**
  *
@@ -17,6 +20,9 @@ public class FactOrCrap {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+
+        QuestionList qs = new QuestionList();
+        FactOrCrapUI ui = new FactOrCrapUI();
         
 
     }
