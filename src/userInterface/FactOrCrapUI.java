@@ -52,12 +52,7 @@ public class FactOrCrapUI extends JFrame {
          this.add(newCard);
          this.add(t);
          this.add(start);
-         this.add(reset);
-        
-    }
-        
-        
-        
-        
-    }
+         this.add(reset);       
+    }       
+}
 
