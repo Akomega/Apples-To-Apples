@@ -17,7 +17,7 @@ import javax.swing.Timer;
 /**
  * FUNCTIONAL REQUIREMENT 1.0 - "The system shall maintain a timed functionality"
  * @author Ajay
- * Constructor takes in the time limit, and creates a progress  that will
+ * Constructor takes in the time limit, and creates a progress bar that will
  * count down to 0.
  */
 public class turnTimer extends JPanel {
