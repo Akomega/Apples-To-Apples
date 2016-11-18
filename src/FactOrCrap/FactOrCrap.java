@@ -11,7 +11,7 @@ import userInterface.FactOrCrapUI;
 
 /**
  *
- * @author Ajay
+ * @author
  */
 public class FactOrCrap {
 
