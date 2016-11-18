@@ -15,6 +15,8 @@ import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.Collections;
 import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 
@@ -27,6 +29,7 @@ import javax.swing.JTextPane;
  * 
  * --Public Methods:
  * * void getNewQuestionCard();
+ * * void putFaceDown();
  * * ArrayList<QuestionFormat> getCardQuestions();
  */
 public class QuestionCardUI extends JPanel {
@@ -35,30 +38,51 @@ public class QuestionCardUI extends JPanel {
     private final Color QUESTION_BACKGROUND = Color.decode("#ccffff");
     private final Color ANSWER_BACKGROUND = Color.decode("#ccffff");
     private final Color CARD_BACKGROUND = Color.decode("#ffcc00");
+    private final Color FACE_DOWN_BACKGROUND = Color.LIGHT_GRAY;
     
     //Contains question and answer pairs that are on the current card
     private ArrayList<QuestionFormat> cardQuestions = new ArrayList<>();
     
     private GridLayout gridLayout;  //Card face layout
     private CardLayout cardLayout; //Container layout
+    
+    private JPanel faceDown;
    
     //Constructor
     public QuestionCardUI(){
         this.setLayout(cardLayout = new CardLayout());
         this.setPreferredSize(new Dimension(250, 450));
         this.setBorder(BorderFactory.createRaisedBevelBorder());
-        this.setBackground(CARD_BACKGROUND);
+        this.setBackground(CARD_BACKGROUND);   
         this.setVisible(true);
-        getNewQuestionCard();    
+        initFaceDown();
+        putFaceDown();    
     }
     
-    //Changes card face
+    //Flips the card
     public void getNewQuestionCard(){
         JPanel newCard = initCardFace();
         newCard.setVisible(true);
         this.add(newCard, "newCard");
         cardLayout.show(this, "newCard");
     }
+    
+    //Puts the card face down
+    public void putFaceDown(){
+        this.add(faceDown, "faceDown");
+        cardLayout.show(this, "faceDown");
+    }
+    
+    //Set up the faceDown JPanel
+    private void initFaceDown(){
+        JLabel label = new JLabel("Card is face down");
+        faceDown = new JPanel();
+        faceDown.setPreferredSize(new Dimension(250, 450));
+        faceDown.setBackground(FACE_DOWN_BACKGROUND);
+        faceDown.add(label);
+        faceDown.setVisible(true);
+    }
+    
     
     //Returns an ArrayList of the questions and answers currently on the card
     //Top to bottom, index 0 to 2
